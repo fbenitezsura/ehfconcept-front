@@ -26,7 +26,7 @@ module.exports = withStoreConfig({
       },
       {
         protocol: "https",
-        hostname: "backend-production-58f9.up.railway.app",
+        hostname: "ecq-medusa-backend-production.up.railway.app",
       },
       {
         protocol: "https",
