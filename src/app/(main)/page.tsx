@@ -10,7 +10,7 @@ import { Metadata } from "next"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "Ecoquerai",
+  title: "EHFConcept",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }

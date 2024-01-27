@@ -18,7 +18,7 @@ export default function Tabs({
 
     const [collectionSelected, setCollectionSelected] = useState(0);
 
-    const { data } = useFeaturedProductsQuery(collections[collectionSelected].id);
+    const { data } = useFeaturedProductsQuery(collections[collectionSelected]?.id);
 
     return (
         <div className="w-full px-2 py-8 sm:px-0 md:px-[40px]">
