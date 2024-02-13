@@ -8,6 +8,11 @@ module.exports = withStoreConfig({
       "@medusajs/modules-sdk",
     ],
     missingSuspenseWithCSRBailout: false,
+    experimental: {
+      serverActions: {
+        allowedOrigins: ['sandbox.flow.cl'],
+      },
+    },
   },
   features: store.features,
   reactStrictMode: true,
@@ -23,6 +28,10 @@ module.exports = withStoreConfig({
       {
         protocol: "http",
         hostname: "localhost",
+      },
+      {
+        protocol: "https",
+        hostname: "ehfconcept-front.vercel.app",
       },
       {
         protocol: "https",
