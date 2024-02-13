@@ -4,7 +4,7 @@ import { Button } from "@medusajs/ui"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
-import { useCart } from "medusa-react"
+import { useCart, useSetPaymentSession } from "medusa-react"
 import React, { useEffect, useState } from "react"
 
 type PaymentButtonProps = {
@@ -16,10 +16,10 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ paymentSession }) => {
 
   const notReady =
     !cart ||
-    !cart.shipping_address ||
-    !cart.billing_address ||
-    !cart.email ||
-    cart.shipping_methods.length < 1
+      !cart.shipping_address ||
+      !cart.billing_address ||
+      !cart.email ||
+      cart.shipping_methods.length < 1
       ? true
       : false
 
@@ -33,6 +33,10 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ paymentSession }) => {
     case "paypal":
       return (
         <PayPalPaymentButton notReady={notReady} session={paymentSession} />
+      )
+    case "flow-payment":
+      return (
+        <FlowPaymentButton notReady={notReady} />
       )
     default:
       return <Button disabled>Select a payment method</Button>
@@ -127,7 +131,7 @@ const StripePaymentButton = ({
         size="large"
         isLoading={submitting}
       >
-        Realizar pedido 
+        Realizar pedido
       </Button>
       {errorMessage && (
         <div className="text-red-500 text-small-regular mt-2">
@@ -217,6 +221,34 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
       size="large"
     >
       Realizar pedido
+    </Button>
+  )
+}
+
+const FlowPaymentButton = ({ notReady }: { notReady: boolean }) => {
+
+  const [submitting, setSubmitting] = useState(false)
+
+  const { onPaymentCompleted } = useCheckout();
+
+  const { cart } = useCart()
+
+  const handlePayment = () => {
+    setSubmitting(true)
+
+    onPaymentCompleted()
+
+    setSubmitting(false)
+  }
+
+  return (
+    <Button
+      disabled={notReady}
+      isLoading={submitting}
+      onClick={handlePayment}
+      size="large"
+    >
+      Realizar Pago
     </Button>
   )
 }

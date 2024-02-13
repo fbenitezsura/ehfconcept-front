@@ -13,7 +13,7 @@ import Ideal from "@modules/common/icons/ideal"
 import Bancontact from "@modules/common/icons/bancontact"
 import { useElements } from "@stripe/react-stripe-js"
 import { useState } from "react"
-
+import { useUpdateCart } from "medusa-react"
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
   string,
@@ -35,7 +35,10 @@ export const paymentInfoMap: Record<
     title: "Transferencia Bancaria",
     icon: <CreditCard />,
   },
-  // Add more payment providers here
+  'flow-payment': {
+    title: "Flow",
+    icon: <CreditCard />,
+  }
 }
 
 const Payment = () => {
@@ -47,9 +50,13 @@ const Payment = () => {
     addressReady,
     shippingReady,
     paymentReady,
-  } = useCheckout()
+  } = useCheckout();
 
   const { setCart } = useCart()
+
+  const { mutate: updateCart, isLoading: updatingCart } = useUpdateCart(
+    cart?.id!
+  )
 
   const [cardFormState, setCardFormState] = useState({
     cardNumberComplete: false,
@@ -81,8 +88,8 @@ const Payment = () => {
   }
 
   const handleChange = (value: string) => {
-    setPaymentSession(value)
-    clearErrors("paymentSession")
+    setPaymentSession(value);
+    clearErrors("paymentSession");
   }
 
   const useFormState = useForm({ mode: "onChange", reValidateMode: "onChange" })
@@ -159,9 +166,7 @@ const Payment = () => {
                       paymentInfoMap={paymentInfoMap}
                       paymentSession={paymentSession}
                       key={paymentSession.id}
-                      selectedPaymentOptionId={
-                        cart.payment_session?.provider_id || null
-                      }
+                      selectedPaymentOptionId={cart.payment_session?.provider_id || null}
                     />
                   )
                 })}
@@ -207,43 +212,7 @@ const Payment = () => {
           </div>
         )}
 
-        <div className={!editingOtherSteps && isOpen ? "hidden" : "block"}>
-          {cart && cart.payment_session && (
-            <div className="flex items-start gap-x-1 w-full">
-              <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Método de pago
-                </Text>
-                <Text className="txt-medium text-ui-fg-subtle">
-                  {paymentInfoMap[cart.payment_session.provider_id]?.title ||
-                    cart.payment_session.provider_id}
-                </Text>
-                {process.env.NODE_ENV === "development" &&
-                  !Object.hasOwn(
-                    paymentInfoMap,
-                    cart.payment_session.provider_id
-                  ) && (
-                    <Tooltip content="You can add a user-friendly name and icon for this payment provider in 'src/modules/checkout/components/payment/index.tsx'" />
-                  )}
-              </div>
-              <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1 text-center font-bold">
-                  Detalles del metodo
-                </Text>
-                <Text>
-                  {cart.payment_session.provider_id === "stripe" && "**** **** **** ****"}
-                  <div className="flex flex-col text-center">
-                    <p>Banco: Banco Estado</p>
-                    <p>Cuenta: 11.111.111-1</p>
-                    <p>Rut: 11.111.111-1</p>
-                    <p>Nombre: Huevos</p>
-                    <p>Email: clientes@marycris.cl</p>
-                  </div>
-                </Text>
-              </div>
-            </div>
-          )}
-        </div>
+
       </div>
       <Divider className="mt-8" />
     </div>

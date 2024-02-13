@@ -18,6 +18,7 @@ import {
   useRegions,
   useSetPaymentSession,
   useUpdateCart,
+  useUpdatePaymentSession
 } from "medusa-react"
 import { useRouter } from "next/navigation"
 import React, { createContext, useContext, useEffect, useMemo } from "react"
@@ -81,17 +82,16 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
       mutate: setShippingMethod,
       isLoading: addingShippingMethod,
     },
-    completeCheckout: { mutate: complete },
+    completeCheckout: { mutate: complete }
   } = useCart()
 
   const { customer } = useMeCustomer()
   const { countryCode } = useStore()
-
+  const updatePaymentSession = useUpdatePaymentSession(cart?.id);
   const methods = useForm<CheckoutFormValues>({
     defaultValues: mapFormValues(customer, cart, countryCode),
     reValidateMode: "onChange",
   })
-
   const {
     mutate: setPaymentSessionMutation,
     isLoading: settingPaymentSession,
@@ -105,7 +105,7 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
     enabled: !!cart?.id,
   })
 
-  const { regions } = useRegions()
+  const { regions } = useRegions();
 
   const { resetCart, setRegion } = useStore()
   const { push } = useRouter()
@@ -119,7 +119,6 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
 
   const editShipping = useToggleState()
   const editPayment = useToggleState()
-
   /**
    * Boolean that indicates if a part of the checkout is loading.
    */
@@ -324,8 +323,31 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
     isCompleting.open()
     complete(undefined, {
       onSuccess: ({ data }) => {
-        push(`/order/confirmed/${data.id}`)
-        resetCart()
+
+        if (cart?.payment_session?.provider_id === 'flow-payment') {
+
+          console.log('data',data);
+
+          updatePaymentSession.mutate({
+            provider_id: 'flow-payment',
+            data: {
+              order_id: data.id,
+              email: data.email,
+              amount: data.total
+            }
+          }, {
+            onSuccess: ({ cart }) => {
+              const urlToPay : string = cart?.payment_session?.data?.urlToPay || '';
+              push(urlToPay);
+              resetCart()
+            }
+          })
+
+        } else {
+          push(`/order/confirmed/${data.id}`);
+          resetCart()
+        }
+
       },
     })
     isCompleting.close()
