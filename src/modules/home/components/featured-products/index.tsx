@@ -7,7 +7,7 @@ const FeaturedProducts = ({
   collections: ProductCollection[]
 }) => {
   return (
-    <div className="py-2">
+    <div className="py-2 max-w-[1180px] mx-auto">
       <ul className="flex flex-col gap-x-6 gap-y-8">
         {collections.map((collections) => (
           <li key={collections.id}>

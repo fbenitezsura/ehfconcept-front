@@ -26,7 +26,7 @@ const Nav = () => {
         </span>
         <span className="text-[9px] md:text-[14px] font-extrabold">ENVÍOS SOLO REGIÓN DEL BIOBIO.</span>
       </div>
-      <header className="relative h-16 px-8 mx-auto duration-200 bg-[#282828] text-white border-ui-border-base">
+      <header className="relative h-16 px-8 mx-auto duration-200 bg-[#FF5733] text-white border-ui-border-base">
         <nav className="txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="block small:hidden">

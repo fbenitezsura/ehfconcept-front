@@ -19,6 +19,10 @@ module.exports = {
         visibility: "visibility",
         padding: "padding-top padding-right padding-bottom padding-left",
       },
+      borderWidth: {
+        '1': '1px',
+        '2': '2px',
+      },
       colors: {
         grey: {
           0: "#FFFFFF",

@@ -23,7 +23,7 @@ export default function Tabs({
     return (
         <div className="w-full px-2 py-8 sm:px-0 md:px-[40px]">
             <Tab.Group onChange={setCollectionSelected}>
-                <Tab.List className="flex mx-auto space-x-1 max-w-[350px] border-b-2">
+                <Tab.List className="flex mx-auto space-x-1 max-w-[650px] pb-5">
                     {type === 'collection' && collections.map((category) => (
                         <Tab
                             key={category}
@@ -32,7 +32,7 @@ export default function Tabs({
                                     'w-full py-2.5 text-sm font-medium leading-5',
                                     'focus:outline-none',
                                     selected
-                                        ? 'underline text-black underline-offset-[15px]'
+                                        ? 'underline text-black underline-offset-[12px]'
                                         : 'text-neutral-700'
                                 )
                             }

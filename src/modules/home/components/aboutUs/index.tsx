@@ -3,8 +3,8 @@ import Button from '@modules/common/components/button/index';
 const AboutUs = () => {
 
     return (
-        <div className="container mx-auto grid grid-cols-12">
-            <div className="col-span-12 md:col-span-6 xl:px-[150px]">
+        <div className="mt-[20px] max-w-[1180px] mx-auto grid grid-cols-12">
+            <div className="col-span-12 md:col-span-6 xl:px-[20px]">
                 <img className="h-full" src="/img/Team.jpg" />
             </div>
             <div className="col-span-12 md:col-span-6 md:px-[50px] text-center">

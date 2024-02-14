@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-mode="light">
-      <body className="bg-[#f6f2ee]">
+      <body className="bg-white">
         <Providers>
           <main className="relative">{children}</main>
         </Providers>
