@@ -10,7 +10,7 @@ module.exports = withStoreConfig({
     missingSuspenseWithCSRBailout: false,
     experimental: {
       serverActions: {
-        allowedOrigins: ['sandbox.flow.cl','*.sandbox.flow.cl'],
+        allowedOrigins: ['sandbox.flow.cl','*.sandbox.flow.cl','ehfconcept-front.vercel.app'],
       },
     },
   },
