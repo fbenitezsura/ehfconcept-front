@@ -8,10 +8,8 @@ module.exports = withStoreConfig({
       "@medusajs/modules-sdk",
     ],
     missingSuspenseWithCSRBailout: false,
-    experimental: {
-      serverActions: {
-        allowedOrigins: ['sandbox.flow.cl','*.sandbox.flow.cl','ehfconcept-front.vercel.app'],
-      },
+    serverActions: {
+      allowedOrigins: ['sandbox.flow.cl','*.sandbox.flow.cl','ehfconcept-front.vercel.app','webpay3gint.transbank.cl'],
     },
   },
   features: store.features,
