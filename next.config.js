@@ -35,11 +35,11 @@ module.exports = withStoreConfig({
       },
       {
         protocol: "https",
-        hostname: "ecq-medusa-backend-production.up.railway.app",
+        hostname: "ecq-medusa-backend-production.up.railway.app"
       },
       {
         protocol: "https",
-        hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
+        hostname: "medusa-ecommerce-bucket.s3.us-east-2.amazonaws.com",
       },
       {
         protocol: "https",

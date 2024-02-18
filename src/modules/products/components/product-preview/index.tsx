@@ -15,8 +15,8 @@ const ProductPreview = ({
     <Link href={`/products/${handle}`} className="group">
     <div>
       <Thumbnail thumbnail={thumbnail} size="square" isFeatured={isFeatured} />
-      <button className="w-full h-[38px] px-[6] py-[10px] border-1 border-[#2b2b2b] flex justify-center items-center
-      hover:border-2 hover:border-[#ccc] hover:bg-[#313131] text-[#313131] hover:text-white">Comprar</button>
+      <button className="w-full h-[38px] px-[6] py-[10px] border-1 flex justify-center items-center
+      hover:border-2 hover:border-[#ccc] border-[#FF813A] hover:bg-[#313131] text-[#313131] hover:text-white">Comprar</button>
       <div className="h-auto bg-[#F7F7F7] p-[16px] text-center rounded-b-lg">
         <Text className="text-[16px] text-black font-bold">{title}</Text>
         <div className="mt-[10px]">

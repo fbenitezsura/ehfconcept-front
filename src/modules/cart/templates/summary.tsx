@@ -19,7 +19,7 @@ const Summary = ({ cart }: SummaryProps) => {
       <Divider />
       <CartTotals data={cart} />
       <Link href="/checkout">
-        <Button className="w-full h-10">Ir a pagar</Button>
+        <Button className="w-full h-10 bg-[#FF5733] hover:bg-[#FF5733] text-white">Ir a pagar</Button>
       </Link>
     </div>
   )

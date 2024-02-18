@@ -11,7 +11,7 @@ const AboutUs = () => {
                 <p className="mt-5">TEAM EHFConcept</p>
                 <h2 className="mt-6 text-2xl font-bold">Una marca que cambiara el concepto del diseño.</h2>                
                 <p className="mt-5"><strong>Nuestra misión</strong>: Es proporcionar soluciones de diseño inmobiliario unicas y funcionales que satisfagan las necesidades y preferencias del cliente.</p>
-                <Button className="mt-5">Leer más sobre EHFConcept</Button>
+                <Button className="mt-5 btn-secondary">Leer más sobre EHFConcept</Button>
             </div>           
         </div>
     )

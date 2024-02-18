@@ -110,3 +110,260 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+@layer backgrounds {
+  .bg-ui-bg-base {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .bg-ui-bg-base-hover {
+      background-color: rgba(249, 250, 251, 1);
+  }
+
+  .bg-ui-bg-base-pressed {
+      background-color: rgba(243, 244, 246, 1);
+  }
+
+  .bg-ui-bg-component {
+      background-color: rgba(241, 243, 245, 1);
+  }
+
+  .bg-ui-bg-disabled {
+      background-color: rgba(243, 244, 246, 1);
+  }
+
+  .bg-ui-bg-field {
+      background-color: rgba(249, 250, 251, 1);
+  }
+
+  .bg-ui-bg-field-hover {
+      background-color: rgba(243, 244, 246, 1);
+  }
+
+  .bg-ui-bg-highlight {
+      background-color: rgba(239, 246, 255, 1);
+  }
+
+  .bg-ui-bg-highlight-hover {
+      background-color: rgba(219, 234, 254, 1);
+  }
+
+  .bg-ui-bg-interactive {
+      background-color: rgba(59, 130, 246, 1);
+  }
+
+  .bg-ui-bg-overlay {
+      background-color: rgba(3, 7, 18, 0.4);
+  }
+
+  .bg-ui-bg-subtle {
+      background-color: rgba(249, 250, 251, 1);
+  }
+
+  .bg-ui-bg-subtle-hover {
+      background-color: rgba(243, 244, 246, 1);
+  }
+
+  .bg-ui-bg-subtle-pressed {
+      background-color: rgba(229, 231, 235, 1);
+  }
+
+  .bg-ui-bg-switch-off {
+      background-color: rgba(229, 231, 235, 1);
+  }
+
+  .bg-ui-bg-switch-off-hover {
+      background-color: rgba(209, 213, 219, 1);
+  }
+}
+
+@layer foregrounds {
+  .text-ui-fg-base {
+    color: rgba(3, 7, 18, 1);
+  }
+
+  .text-ui-fg-disabled {
+      color: rgba(209, 213, 219, 1);
+  }
+
+  .text-ui-fg-error {
+      color: rgba(225, 29, 72, 1);
+  }
+
+  .text-ui-fg-interactive {
+      color: rgba(59, 130, 246, 1);
+  }
+
+  .text-ui-fg-interactive-hover {
+      color: rgba(37, 99, 235, 1);
+  }
+
+  .text-ui-fg-muted {
+      color: rgba(156, 163, 175, 1);
+  }
+
+  .text-ui-fg-on-color {
+      color: rgba(255, 255, 255, 1);
+  }
+
+  .text-ui-fg-on-inverted {
+      color: rgba(255, 255, 255, 1);
+  }
+
+  .text-ui-fg-subtle {
+      color: rgba(75, 85, 99, 1);
+  }
+}
+
+@layer borders {
+  .border-ui-border-base {
+    border-color: rgba(229, 231, 235, 1);
+  }
+
+  .border-ui-border-danger {
+      border-color: rgba(190, 18, 60, 1);
+  }
+
+  .border-ui-border-error {
+      border-color: rgba(225, 29, 72, 1);
+  }
+
+  .border-ui-border-interactive {
+      border-color: rgba(59, 130, 246, 1);
+  }
+
+  .border-ui-border-loud {
+      border-color: rgba(3, 7, 18, 1);
+  }
+
+  .border-ui-border-strong {
+      border-color: rgba(209, 213, 219, 1);
+  }
+
+  .border-ui-border-transparent {
+      border-color: rgba(3, 7, 18, 0);
+  }
+}
+
+@layer inputs {
+  .bg-ui-bg-field {
+    background: white !important;
+    border: 1px solid #FF5733 !important;
+    text-color: #FF813A !important;
+  }
+  .bg-ui-tag-neutral-bg {
+    background: white !important;
+  }
+  .bg-ui-bg-base{
+    background: white !important;
+    color: black;
+  }
+  .text-ui-fg-base{
+  color: black !important;
+  }
+  .text-ui-fg-interactive {
+   color: #FF813A !important;
+  }
+  .text-ui-fg-subtle{
+    color: #444 !important;
+  }
+
+  .bg-ui-bg-subtle {
+    background: white !important;
+    border: 1px solid #FF5733 !important;
+    text-color: #FF813A !important;
+  }
+}
+
+@layer buttons {
+
+  .bg-ui-button-danger {
+    background-color: rgba(225, 29, 72, 1);
+  }
+
+  .bg-ui-button-danger-hover {
+      background-color: rgba(190, 18, 60, 1);
+  }
+
+  .bg-ui-button-danger-pressed {
+      background-color: rgba(159, 18, 57, 1);
+  }
+
+  .bg-ui-button-inverted {
+      background-color: rgba(3, 7, 18, 1);
+  }
+
+  .bg-ui-button-inverted-hover {
+      background-color: rgba(17, 24, 39, 1);
+  }
+
+  .bg-ui-button-inverted-pressed {
+      background-color: rgba(31, 41, 55, 1);
+  }
+
+  .bg-ui-button-neutral {
+      background-color: rgba(255, 255, 255, 1);
+  }
+
+  .bg-ui-button-neutral-hover {
+      background-color: rgba(243, 244, 246, 1);
+  }
+
+  .bg-ui-button-neutral-pressed {
+      background-color: rgba(229, 231, 235, 1);
+  }
+
+  .bg-ui-button-transparent {
+      background-color: rgba(255, 255, 255, 0.01);
+  }
+
+  .bg-ui-button-transparent-hover {
+      background-color: rgba(243, 244, 246, 1);
+  }
+
+  .bg-ui-button-transparent-pressed {
+      background-color: rgba(229, 231, 235, 1);
+  }
+
+
+  .shadow-buttons-inverted{
+    box-shadow: none !important;
+  }
+  .bg-ui-button-inverted{
+    background: #FF813A !important;
+  }
+  .text-ui-fg-on-inverted{
+    color: white !important;
+  }
+  .btn-secondary {
+    border: 2px solid #FF5733 !important;
+    color: black !important;
+    background: none !important;
+  }
+}
+
+@layer code {
+  .bg-ui-code-bg-base {
+    background-color: rgba(17, 24, 39, 1);
+  }
+
+  .bg-ui-code-bg-subtle {
+      background-color: rgba(31, 41, 55, 1);
+  }
+
+  .border-ui-code-border {
+      border-color: rgba(55, 65, 81, 1);
+  }
+
+  --code-fg-base {
+      color: rgba(249, 250, 251, 1);
+  }
+
+  --code-fg-muted {
+      color: rgba(107, 114, 128, 1);
+  }
+
+  --code-fg-subtle {
+      color: rgba(156, 163, 175, 1);
+  }
+}

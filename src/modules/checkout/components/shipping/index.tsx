@@ -130,7 +130,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
         </Heading>
         {!isOpen && addressReady && (
           <Text>
-            <button onClick={handleEdit} className="text-ui-fg-interactive">
+            <button onClick={handleEdit} className="text-ui-fg-interactive text-[#FF813A]">
               Editar
             </button>
           </Text>

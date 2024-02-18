@@ -110,7 +110,7 @@ const CartDropdown = () => {
                     </span>
                   </div>
                   <Link href="/cart" passHref>
-                    <Button className="w-full" size="large">
+                    <Button className="bg-[#FF5733] text-white w-full hover:bg-[#FF5733] hover:border-[#FF5733] hover:border-2" size="large">
                       Ir al carrito
                     </Button>
                   </Link>

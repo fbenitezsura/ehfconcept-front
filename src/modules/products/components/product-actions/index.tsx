@@ -78,7 +78,7 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
       <button
         onClick={addToCart}
         disabled={!inStock || !variant}
-        className="w-full h-10 bg-[#94c120] border-[#94c120] rounded-xl text-white hover:bg-[#87AB2A]"
+        className={`w-full h-10 ${!inStock ? 'bg-white border-[#FF813A] border-1 text-[#444]' : 'bg-[#FF813A] text-white'}  rounded-xl `}
       >
         {!inStock
           ? "Sin stock"
