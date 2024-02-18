@@ -34,7 +34,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
           }
         )}
       >
-        {paymentSession.provider_id === "manual" && isDevelopment && (
+        {paymentSession.provider_id === "manual" && (
           <div className="flex items-center justify-between ">
             <div className="flex items-center gap-x-4">
               <Radio
@@ -67,7 +67,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
           </div>
         )}
 
-        {paymentSession.provider_id === "flow-payment" && isDevelopment && (
+        {paymentSession.provider_id === "flow-payment" && (
           <div className="flex items-center w-full">
             <div className="flex items-center gap-x-4 w-full">
               <Radio
