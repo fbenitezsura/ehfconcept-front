@@ -338,8 +338,8 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
           }, {
             onSuccess: ({ cart }) => {
               const urlToPay : string = cart?.payment_session?.data?.urlToPay || '';
+              resetCart();
               push(urlToPay);
-              resetCart()
             }
           })
 
