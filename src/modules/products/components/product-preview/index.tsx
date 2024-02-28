@@ -18,7 +18,7 @@ const ProductPreview = ({
     <Link href={`/products/${handle}`} className="group">
     <div className="relative">
       {!inStock && (
-        <div className="absolute top-2 left-1 w-[86px] h-[20px] rounded-[6px] bg-[#5F5F5F] z-40 flex items-center justify-center px-[5px] py-[4px]">
+        <div className="absolute top-2 left-1 w-[86px] h-[20px] rounded-[6px] bg-[#5F5F5F] z-30 flex items-center justify-center px-[5px] py-[4px]">
           <span className="text-white text-[12px]">{inStock ? 'Stock' : 'Sin Stock'}</span>
         </div>
       )}
