@@ -4,11 +4,13 @@ import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import { formatAmount } from "medusa-react"
 import { ProductPreviewType } from "types/global"
 import { CalculatedVariant } from "types/medusa"
-
+import { canBuy } from "@lib/util/can-buy";
 const transformProductPreview = (
   product: PricedProduct,
   region: Region
-): ProductPreviewType => {
+): ProductPreviewType & {
+  inStock: boolean
+} => {
   const variants = product.variants as unknown as CalculatedVariant[];
 
   let cheapestVariant = undefined
@@ -22,12 +24,18 @@ const transformProductPreview = (
     }, variants[0])
   }
 
+  const inStock = (product: PricedProduct) => {
+    const variants = product.variants;
+    return variants.some((variant) => variant.inventory_quantity > 0);
+  }
+
   return {
     id: product.id!,
     title: product.title!,
     handle: product.handle!,
     thumbnail: product.thumbnail!,
     created_at: product.created_at,
+    inStock: inStock(product),
     price: cheapestVariant
       ? {
           calculated_price: cheapestVariant.original_price_incl_tax,
