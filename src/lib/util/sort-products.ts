@@ -2,7 +2,6 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import { ProductPreviewType } from "types/global"
 
 const stripCurrency = (price: string) => {
-  console.log('price',price)
   return parseFloat(price.toString().replace(/[^0-9.]/g, ""))
 }
 

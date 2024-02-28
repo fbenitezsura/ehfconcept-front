@@ -5,12 +5,14 @@ import { ChangeEvent, useState } from "react"
 
 type SortCollectionFilterProps = {
   refinementList: StoreGetProductsParams
-  setRefinementList: (refinementList: StoreGetProductsParams) => void
+  setRefinementList: (refinementList: StoreGetProductsParams) => void,
+  closeMobileFilter?: () => void
 }
 
 const CollectionFilter = ({
   refinementList,
   setRefinementList,
+  closeMobileFilter
 }: SortCollectionFilterProps) => {
   const { collections, isLoading } = useCollections()
   const [collectionId, setCollectionId] = useState<string | null>(null)
@@ -29,11 +31,11 @@ const CollectionFilter = ({
     id: string
   ) => {
     setCollectionId(id)
-
     setRefinementList({
       ...refinementList,
       collection_id: [id],
     })
+    closeMobileFilter && closeMobileFilter()
   }
 
   return (

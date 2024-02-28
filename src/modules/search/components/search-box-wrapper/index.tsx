@@ -37,8 +37,8 @@ const SearchBoxWrapper = ({
   placeholder = "Buscar productos...",
   ...rest
 }: SearchBoxProps) => {
-  const { query, refine, isSearchStalled } = useSearchBox(rest)
-  const [value, setValue] = useState(query)
+
+  const [value, setValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const router = useRouter()
@@ -58,8 +58,8 @@ const SearchBoxWrapper = ({
   }
 
   useEffect(() => {
-    if (query !== value) {
-      refine(value)
+    if (value !== value) {
+      //refine(value)
     }
     // We don't want to track when the InstantSearch query changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,12 +68,12 @@ const SearchBoxWrapper = ({
   useEffect(() => {
     // We bypass the state update if the input is focused to avoid concurrent
     // updates when typing.
-    if (document.activeElement !== inputRef.current && query !== value) {
-      setValue(query)
+    if (document.activeElement !== inputRef.current) {
+      setValue(value)
     }
     // We don't want to track when the React state value changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
+  }, [value])
 
   useEffect(() => {
     if (inputRef.current) {
@@ -84,7 +84,7 @@ const SearchBoxWrapper = ({
   const state = {
     value,
     inputRef,
-    isSearchStalled,
+    isSearchStalled: false,
     onChange,
     onSubmit,
     onReset,

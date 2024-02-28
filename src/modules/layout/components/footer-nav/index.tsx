@@ -11,7 +11,7 @@ const FooterNav = () => {
 
   return (
     <div className="border-t border-ui-border-base mt-20">
-      <div className="flex flex-col bg-[#282828] md:px-[100px]">
+      <div className="flex flex-col bg-[#282828] md:px-[100px] px-[16px]">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-20">
           <div>
             <Link

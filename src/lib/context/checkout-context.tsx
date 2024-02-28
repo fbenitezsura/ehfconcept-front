@@ -326,8 +326,6 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
 
         if (cart?.payment_session?.provider_id === 'flow-payment') {
 
-          console.log('data',data);
-
           updatePaymentSession.mutate({
             provider_id: 'flow-payment',
             data: {

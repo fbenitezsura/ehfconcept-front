@@ -43,7 +43,6 @@ export default function Tabs({
                 </Tab.List>
                 <Tab.Panels className="grid grid-cols-12 gap-x-6 gap-y-8 mt-[20px]">
                     {data && data.map((product) => {
-                        console.log(product)
                         return (
                             <div className="col-span-6 md:col-span-3">
                                 <ProductPreview isFeatured {...product} />
