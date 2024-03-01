@@ -7,13 +7,18 @@ import { initialize as initializeProductModule } from "@medusajs/product"
  */
 export async function search(query: string) {
 
-  const productService = await initializeProductModule()
+  try{
+    const productService = await initializeProductModule()
 
-  const products = await productService.list({
-    q: query
-  });
+    const products = await productService.list({
+      q: query
+    });
 
-  const hits = products
+    const hits = products
 
-  return hits
+    return hits
+  } catch(e){
+    console.log(e);
+  }
+  
 }
