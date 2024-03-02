@@ -15,13 +15,25 @@ type SearchResultsTemplateProps = {
 
 const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
   const [params, setParams] = useState<StoreGetProductsParams>({})
-  const [sortBy, setSortBy] = useState<SortOptions>("created_at")
+  const [sortBy, setSortBy] = useState<SortOptions>("created_at");
+
+  console.log(hits)
 
   useEffect(() => {
     setParams({
       id: hits?.map((h) => (h.hasOwnProperty("objectID") ? h.objectID : h.id)),
     })
   }, [hits])
+
+  if(!hits){
+
+    return (
+      <div>
+        Fallo tu wea
+      </div>
+    )
+
+  }
 
   return (
     <div>
