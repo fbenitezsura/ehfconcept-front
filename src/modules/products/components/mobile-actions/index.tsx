@@ -32,7 +32,6 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
     updateOptions(options);
     close();
   }
-  console.log('variant',variant)
   return (
     <>
       <div
