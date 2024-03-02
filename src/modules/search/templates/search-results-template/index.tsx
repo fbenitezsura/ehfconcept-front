@@ -64,6 +64,7 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
               setSortBy={setSortBy}
               search
             />
+            <div className="mt-10"/>
             <InfiniteProducts params={params} sortBy={sortBy} />
           </>
         ) : (

@@ -9,7 +9,7 @@ import clsx from "clsx"
 import React, { Fragment, useMemo } from "react"
 import OptionSelect from "../option-select"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-
+import ShowNumberFormat from "@modules/common/components/number-format"
 type MobileActionsProps = {
   product: PricedProduct
   show: boolean
@@ -28,10 +28,15 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
     return variantPrice || cheapestPrice || null
   }, [price])
 
+  const customUpdateOptions = (options: Record<string, string>) => {
+    updateOptions(options);
+    close();
+  }
+  console.log('variant',variant)
   return (
     <>
       <div
-        className={clsx("lg:hidden sticky inset-x-0 bottom-0", {
+        className={clsx("lg:hidden sticky inset-x-0 bottom-0 z-50", {
           "pointer-events-none": !show,
         })}
       >
@@ -54,17 +59,17 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                   {selectedPrice.price_type === "sale" && (
                     <p>
                       <span className="line-through text-small-regular">
-                        {selectedPrice.original_price}
+                        <ShowNumberFormat className="text-[16px] text-[#FF5733] font-semibold" value={selectedPrice.calculated_price}/>
                       </span>
                     </p>
-                  )}
+                  )} 
                   <span
                     className={clsx({
                       "text-ui-fg-interactive":
                         selectedPrice.price_type === "sale",
                     })}
                   >
-                    {selectedPrice.calculated_price}
+                   <ShowNumberFormat className="text-[16px] text-[#FF5733] font-semibold" value={selectedPrice.calculated_price}/>
                   </span>
                 </div>
               ) : (
@@ -72,18 +77,18 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
               )}
             </div>
             <div className="grid grid-cols-2 w-full gap-x-4">
-              <Button onClick={open} variant="secondary" className="w-full">
+              <Button onClick={open} variant="secondary" className="w-full bg-[#F7F7F7] shadow-none border-1 border-[#ccc]">
                 <div className="flex items-center justify-between w-full">
                   <span>
                     {variant
                       ? Object.values(options).join(" / ")
-                      : "Select Options"}
+                      : "Seleccionar opción"}
                   </span>
                   <ChevronDown />
                 </div>
               </Button>
-              <Button onClick={addToCart} className="w-full">
-                {!inStock ? "Out of stock" : "Agregar al carrito"}
+              <Button onClick={addToCart} disabled={!options} className={`w-full ${!variant ? 'bg-[#F7F7F7] text-black' : ''}`}>
+                {!inStock ? "Sin Stock" : "Agregar al carrito"}
               </Button>
             </div>
           </div>
@@ -132,7 +137,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                               <OptionSelect
                                 option={option}
                                 current={options[option.id]}
-                                updateOption={updateOptions}
+                                updateOption={customUpdateOptions}
                                 title={option.title}
                               />
                             </div>
