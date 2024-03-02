@@ -17,10 +17,6 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
   const [params, setParams] = useState<StoreGetProductsParams>({})
   const [sortBy, setSortBy] = useState<SortOptions>("created_at");
 
-  console.log('query',query);
-
-  console.log('results',hits)
-
   useEffect(() => {
     setParams({
       id: hits?.map((h) => (h.hasOwnProperty("objectID") ? h.objectID : h.id)),
