@@ -10,15 +10,22 @@ export async function search(query: string) {
   try{
     const productService = await initializeProductModule()
 
+    console.log('productService',productService)
+
     const products = await productService.list({
       q: query
     });
+
+
+    console.log('result query',)
 
     const hits = products
 
     return hits
   } catch(e){
     console.log(e);
+
+    return []
   }
   
 }

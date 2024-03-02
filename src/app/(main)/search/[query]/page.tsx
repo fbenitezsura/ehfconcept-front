@@ -13,7 +13,7 @@ export default async function StorePage({
   params: { query: string }
 }) {
   const { query } = params
-  const hits = await search(query)
+  const hits = await search(query);
 
   return <SearchResultsTemplate query={query} hits={hits} />
 }
