@@ -19,7 +19,7 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
 
   useEffect(() => {
     setParams({
-      id: hits.map((h) => (h.hasOwnProperty("objectID") ? h.objectID : h.id)),
+      id: hits?.map((h) => (h.hasOwnProperty("objectID") ? h.objectID : h.id)),
     })
   }, [hits])
 
@@ -29,7 +29,7 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
         <div className="flex flex-col items-start">
           <Text className="text-ui-fg-muted">Buscando para:</Text>
           <Heading>
-            {query} ({hits.length})
+            {query} ({hits?.length})
           </Heading>
         </div>
         <Link
