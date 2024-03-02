@@ -7,7 +7,7 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-
+import UnderlineLink from "@modules/common/components/interactive-link"
 type SearchResultsTemplateProps = {
   query: string
   hits: Record<string, any>[]
@@ -17,7 +17,9 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
   const [params, setParams] = useState<StoreGetProductsParams>({})
   const [sortBy, setSortBy] = useState<SortOptions>("created_at");
 
-  console.log(hits)
+  console.log('query',query);
+
+  console.log('results',hits)
 
   useEffect(() => {
     setParams({
@@ -25,11 +27,16 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
     })
   }, [hits])
 
-  if(!hits){
+  if (!hits) {
 
     return (
-      <div>
-        Fallo tu wea
+      <div className="w-full flex flex-col justify-center mt-10 py-6 items-center">
+        <div>
+          <p>No se han encontrado resultados para: <span className="font-bold">"{query}"</span></p>
+        </div>
+        <div className="border border-[#FF5733] p-5 w-[220px] flex justify-center mt-10">
+          <UnderlineLink href="/store">Ir a la tienda</UnderlineLink>
+        </div>
       </div>
     )
 
