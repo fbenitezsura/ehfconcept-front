@@ -28,9 +28,14 @@ const FooterNav = () => {
                 <li>
                   <span className="text-white">Quiene somos</span>
                 </li>
-                <li>
-                  <span className="text-white">Términos y condiciones</span>
-                </li>
+                <Link
+                  href="/terms-and-conditions"
+                  className=""
+                >
+                  <li>
+                    <span className="text-white">Términos y condiciones</span>
+                  </li>
+                </Link>
               </ul>
             </div>
             <div className="flex flex-col gap-y-2">

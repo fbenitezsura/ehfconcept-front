@@ -1,13 +1,13 @@
 "use client"
 
-import useEnrichedLineItems from "@lib/hooks/use-enrich-line-items"
-import SkeletonCartPage from "@modules/skeletons/templates/skeleton-cart-page"
-import { useCart, useMeCustomer } from "medusa-react"
-import EmptyCartMessage from "../components/empty-cart-message"
-import SignInPrompt from "../components/sign-in-prompt"
-import ItemsTemplate from "./items"
-import Summary from "./summary"
-import Divider from "@modules/common/components/divider"
+import useEnrichedLineItems from "@lib/hooks/use-enrich-line-items";
+import SkeletonCartPage from "@modules/skeletons/templates/skeleton-cart-page";
+import { useCart, useMeCustomer } from "medusa-react";
+import EmptyCartMessage from "../components/empty-cart-message";
+import SignInPrompt from "../components/sign-in-prompt";
+import ItemsTemplate from "./items";
+import Summary from "./summary";
+import Divider from "@modules/common/components/divider";
 
 const CartTemplate = () => {
   const { cart } = useCart()
@@ -38,7 +38,7 @@ const CartTemplate = () => {
                 {cart && cart.region && (
                   <>
                     <div className="bg-white p-6">
-                      <Summary cart={cart} />
+                      <Summary cart={cart} customer={customer} />
                     </div>
                   </>
                 )}

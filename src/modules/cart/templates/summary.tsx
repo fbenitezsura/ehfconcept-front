@@ -6,10 +6,11 @@ import Divider from "@modules/common/components/divider"
 import Link from "next/link"
 
 type SummaryProps = {
-  cart: Omit<Cart, "refundable_amount" | "refunded_total">
+  cart: Omit<Cart, "refundable_amount" | "refunded_total">,
+  customer: any
 }
 
-const Summary = ({ cart }: SummaryProps) => {
+const Summary = ({ cart, customer }: SummaryProps) => {
   return (
     <div className="flex flex-col gap-y-4">
       <Heading level="h2" className="text-[2rem] leading-[2.75rem]">
@@ -18,9 +19,16 @@ const Summary = ({ cart }: SummaryProps) => {
       <DiscountCode cart={cart} />
       <Divider />
       <CartTotals data={cart} />
-      <Link href="/checkout">
-        <Button className="w-full h-10 bg-[#FF5733] hover:bg-[#FF5733] text-white">Ir a pagar</Button>
-      </Link>
+      {customer ? (
+        <Link href="/checkout">
+          <Button className="w-full h-10 bg-[#FF5733] hover:bg-[#FF5733] text-white">Ir a pagar</Button>
+        </Link>
+      ) : (
+        <div className="flex justify-center">
+          <span>Debes iniciar para continuar</span>
+        </div>
+      )}
+
     </div>
   )
 }

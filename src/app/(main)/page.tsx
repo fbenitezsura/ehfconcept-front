@@ -2,10 +2,8 @@ import { getCollectionsList } from "@lib/data";
 import FeaturedProducts from "@modules/home/components/featured-products"
 import FeaturedCategory from "@modules/home/components/featured-category";
 import AboutUs from '@modules/home/components/aboutUs';
-import BannerHero from "@modules/home/components/banner-hero"
 import Slider from "@modules/common/components/slider/index"
 import SkeletonHomepageProducts from "@modules/skeletons/components/skeleton-homepage-products";
-import Disclosure from '@modules/common/components/disclosure/index';
 import { Metadata } from "next"
 import { Suspense } from "react"
 
