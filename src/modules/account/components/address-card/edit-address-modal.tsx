@@ -11,7 +11,9 @@ import Spinner from "@modules/common/icons/spinner"
 import clsx from "clsx"
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
-
+import NativeSelect, {
+  NativeSelectProps,
+} from "@modules/common/components/native-select"
 type FormValues = {
   first_name: string
   last_name: string
@@ -199,31 +201,53 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 autoComplete="postal-code"
               />
               <Input
-                label="Ciudad"
-                {...register("city", {
-                  required: "City is required",
-                })}
+                label="Telefono"
+                {...register("phone")}
                 errors={errors}
-                required
-                autoComplete="locality"
+                autoComplete="phone"
               />
             </div>
-            <Input
-              label="Región"
-              {...register("province")}
-              errors={errors}
-              autoComplete="address-level1"
-            />
             <CountrySelect
               {...register("country_code", { required: true })}
               autoComplete="country"
             />
-            <Input
-              label="Telefono"
-              {...register("phone")}
+            <NativeSelect
+              placeholder="Región"
+              {...register("province", {
+                required: "Región es requerida",
+              })}
+              autoComplete="address-level1"
               errors={errors}
-              autoComplete="phone"
-            />
+              required
+            >
+              {[{
+                value: 'VIII',
+                label: 'Octava Región'
+              }].map(({ value, label }, index) => (
+                <option key={index} value={value}>
+                  {label}
+                </option>
+              ))}
+            </NativeSelect>
+            <NativeSelect
+              placeholder="Ciudad"
+              {...register("city", {
+                required: "Ciudad es requerida",
+              })}
+              autoComplete="address-level2"
+              errors={errors}
+              required
+            >
+              {[{
+                value: 'Coronel',
+                label: 'Coronel'
+              }].map(({ value, label }, index) => (
+                <option key={index} value={value}>
+                  {label}
+                </option>
+              ))}
+            </NativeSelect>
+
           </div>
           {error && (
             <div className="text-rose-500 text-small-regular py-2">{error}</div>

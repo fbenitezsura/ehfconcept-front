@@ -14,7 +14,7 @@ export default function NotFound() {
         The page you tried to access does not exist.
       </p>
       <Link href="/" className="mt-4 underline text-base-regular text-gray-900">
-        Go to frontpage
+      Volver al Home
       </Link>
     </div>
   )

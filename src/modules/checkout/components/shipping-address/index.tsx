@@ -7,7 +7,9 @@ import AddressSelect from "../address-select"
 import CountrySelect from "../country-select"
 import Checkbox from "@modules/common/components/checkbox"
 import { Container } from "@medusajs/ui"
-
+import NativeSelect, {
+  NativeSelectProps,
+} from "@modules/common/components/native-select"
 const ShippingAddress = ({
   checked,
   onChange,
@@ -78,16 +80,6 @@ const ShippingAddress = ({
                 touched={touchedFields}
                 required
               />
-              <Input
-                label="Ciudad"
-                {...register("shipping_address.city", {
-                  required: "Ciudad es requerida",
-                })}
-                autoComplete="address-level2"
-                errors={errors}
-                touched={touchedFields}
-                required
-              />
               <CountrySelect
                 {...register("shipping_address.country_code", {
                   required: "Pais es requerido",
@@ -97,13 +89,44 @@ const ShippingAddress = ({
                 touched={touchedFields}
                 required
               />
-              <Input
-                label="Región"
-                {...register("shipping_address.province")}
-                autoComplete="address-level1"
-                errors={errors}
-                touched={touchedFields}
-              />
+              <NativeSelect
+              placeholder="Región"
+              {...register("shipping_address.province", {
+                required: "Región es requerida",
+              })}
+              autoComplete="address-level1"
+              errors={errors}
+              touched={touchedFields}
+              required
+              >
+                {[{
+                  value: 'VIII',
+                  label: 'Octava Región'
+                }].map(({ value, label }, index) => (
+                  <option key={index} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </NativeSelect>
+              <NativeSelect
+              placeholder="Ciudad"
+              {...register("shipping_address.city", {
+                required: "Ciudad es requerida",
+              })}
+              autoComplete="address-level2"
+              errors={errors}
+              touched={touchedFields}
+              required
+              >
+                {[{
+                  value: 'Coronel',
+                  label: 'Coronel'
+                }].map(({ value, label }, index) => (
+                  <option key={index} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </NativeSelect>
             </div>
             <div className="my-8">
               <Checkbox
