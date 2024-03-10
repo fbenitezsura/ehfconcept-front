@@ -14,6 +14,7 @@ const ProductPreview = ({
 }: ProductPreviewType & {
   inStock: boolean
 }) => {
+  console.log('inStock',inStock)
   return (
     <Link href={`/products/${handle}`} className="group">
     <div className="relative">

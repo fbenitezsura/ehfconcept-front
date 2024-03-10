@@ -10,6 +10,7 @@ import { Container } from "@medusajs/ui"
 import NativeSelect, {
   NativeSelectProps,
 } from "@modules/common/components/native-select"
+import InputPhone from "@modules/common/components/input-phone"
 const ShippingAddress = ({
   checked,
   onChange,
@@ -147,7 +148,7 @@ const ShippingAddress = ({
                 touched={touchedFields}
                 required
               />
-              <Input
+              <InputPhone
                 label="Telefono"
                 {...register("shipping_address.phone")}
                 autoComplete="tel"

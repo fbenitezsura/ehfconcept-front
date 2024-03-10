@@ -47,6 +47,11 @@ export const useNavigationCollections = () => {
   return queryResults
 }
 
+const inStock = (product: PricedProduct) => {
+  const variants = product.variants;
+  return variants.some((variant) => variant?.inventory_quantity > 0);
+}
+
 const fetchFeaturedProducts = async (
   cartId: string,
   region: Region,
@@ -78,11 +83,14 @@ const fetchFeaturedProducts = async (
         return acc
       }, variants[0])
 
+      console.log('p',p)
+
       return {
         id: p.id!,
         title: p.title!,
         handle: p.handle!,
         thumbnail: p.thumbnail!,
+        inStock: inStock(p),
         price: cheapestVariant
           ? {
               calculated_price: cheapestVariant.original_price_incl_tax.toString(),

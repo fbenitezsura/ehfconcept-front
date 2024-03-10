@@ -2,6 +2,7 @@ import { medusaClient } from "@lib/config"
 import { LOGIN_VIEW, useAccount } from "@lib/context/account-context"
 import { Button } from "@medusajs/ui"
 import Input from "@modules/common/components/input"
+import InputPhone from "@modules/common/components/input-phone"
 import { Spinner } from "@medusajs/icons"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -49,11 +50,11 @@ const Register = () => {
           <Spinner />
         </div>
       )}
-      <h1 className="text-large-semi uppercase mb-6">
-       Conviértete en cliente de la tienda MaryCris
+      <h1 className="text-large-semi uppercase mb-6 text-center">
+        Conviértete en cliente de la tienda {process.env.NEXT_PUBLIC_NAME_ECOMMERCE}
       </h1>
       <p className="text-center text-base-regular text-gray-700 mb-4">
-       Cree su perfil de miembro de la tienda MaryCris y obtenga acceso a una experiencia de compra mejorada.
+        Cree su perfil de miembro de la tienda {process.env.NEXT_PUBLIC_NAME_ECOMMERCE} y obtenga acceso a una experiencia de compra mejorada.
       </p>
       <form className="w-full flex flex-col" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
@@ -75,11 +76,11 @@ const Register = () => {
             autoComplete="email"
             errors={errors}
           />
-          <Input
-            label="Telefono"
-            {...register("phone")}
-            autoComplete="tel"
-            errors={errors}
+          <InputPhone 
+          label="Telefono"
+          {...register("phone")}
+          autoComplete="tel"
+          errors={errors}
           />
           <Input
             label="Contraseña"
@@ -99,13 +100,9 @@ const Register = () => {
           </div>
         )}
         <span className="text-center text-gray-700 text-small-regular mt-6">
-        Al crear una cuenta, usted acepta las condiciones de Medusa Store.{" "}
-          <Link href="/content/privacy-policy" className="underline">
-          Política de privacidad
-          </Link>{" "}
-          y{" "}
-          <Link href="/content/terms-of-use" className="underline">
-            Terminos de uso
+          Al crear una cuenta, usted acepta las condiciones de Medusa Store.{" "}
+          <Link href="/terms-and-conditions" className="underline">
+            Términos y condiciones
           </Link>
           .
         </span>

@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form"
 import NativeSelect, {
   NativeSelectProps,
 } from "@modules/common/components/native-select"
+import InputPhone from "@modules/common/components/input-phone"
 type FormValues = {
   first_name: string
   last_name: string
@@ -200,7 +201,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 errors={errors}
                 autoComplete="postal-code"
               />
-              <Input
+              <InputPhone
                 label="Telefono"
                 {...register("phone")}
                 errors={errors}

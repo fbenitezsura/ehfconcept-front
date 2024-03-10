@@ -7,6 +7,7 @@ import Input from "@modules/common/components/input"
 import Modal from "@modules/common/components/modal"
 import { Plus } from "@medusajs/icons"
 import { Spinner } from "@medusajs/icons"
+import InputPhone from "@modules/common/components/input-phone"
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import NativeSelect, {
@@ -147,11 +148,12 @@ const AddAddress: React.FC = () => {
                 errors={errors}
                 autoComplete="postal-code"
               />
-              <Input
+
+              <InputPhone
                 label="Telefono"
                 {...register("phone")}
+                autoComplete="tel"
                 errors={errors}
-                autoComplete="phone"
               />
 
             </div>

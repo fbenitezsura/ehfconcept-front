@@ -47,6 +47,7 @@ const SortProducts = ({ sortBy, setSortBy, refinementList, setRefinementList }: 
         items={sortOptions}
         value={sortBy}
         handleChange={handleChange}
+        className="w-full md:w-auto min-w-[250px]"
       />
     </div>
   )
