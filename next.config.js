@@ -9,7 +9,7 @@ module.exports = withStoreConfig({
     ],
     missingSuspenseWithCSRBailout: false,
     serverActions: {
-      allowedOrigins: ['sandbox.flow.cl','*.sandbox.flow.cl','*.ehfconcept-front.vercel.app','ehfconcept-front.vercel.app','webpay3gint.transbank.cl'],
+      allowedOrigins: ['sandbox.flow.cl','*.sandbox.flow.cl','*.flow.cl','flow.cl','*.ehfconcept-front.vercel.app','ehfconcept-front.vercel.app','webpay3gint.transbank.cl','webpay3g.transbank.cl'],
     },
   },
   features: store.features,
