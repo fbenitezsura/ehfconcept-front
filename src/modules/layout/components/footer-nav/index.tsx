@@ -46,7 +46,7 @@ const FooterNav = () => {
                 </li>
                 <li>
                   <p className="font-bold mt-2 text-white">WHATSAPP</p>
-                  <span className="text-white">(+56 9) 7479 1692</span>
+                  <span className="text-white">(+56 9) 44218010</span>
                 </li>
               </ul>
             </div>
