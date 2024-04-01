@@ -86,7 +86,7 @@ const ShippingInfoTab = () => {
           <div>
             <span className="font-semibold">Entrega rápida</span>
             <p className="max-w-sm">
-              Su paquete llegará en 3-5 días hábiles al momento de su recogida.
+              Su paquete llegará en 5-7 días hábiles al momento de su recogida.
             </p>
           </div>
         </div>
