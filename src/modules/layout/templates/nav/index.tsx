@@ -36,7 +36,7 @@ const Nav = () => {
         </div>
         <p className="text-center text-[12px] md:text-[14px]">¡ ENVIO GRATIS ! Usando el cupon <strong>"EnvioGratis"</strong> por compras superiores a $49.990</p>
         <div className="hidden md:block">
-          <span className="text-[9px] md:text-[14px]">Contáctanos: +569 87878787</span>
+          <span className="text-[9px] md:text-[14px]">Contáctanos: +569 44218010</span>
         </div>
 
       </div>
