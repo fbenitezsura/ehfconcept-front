@@ -20,14 +20,14 @@ export default async function Home() {
 
   return (
     <>
-      <Slider 
-      typeSlider={'banner'}
-      data={[1]}
+      <Slider
+        typeSlider={'banner'}
+        data={[{ urlImgDesktop: "/img/banners/banner1.jpeg", urlImgMobile: "/img/banners/banner1m.webp" }, { urlImgDesktop: "/img/banners/banner2.jpeg", urlImgMobile: "/img/banners/banner2.jpeg" }]}
       />
-      <FeaturedCategory collections={collections}/>
+      <FeaturedCategory collections={collections} />
       <Suspense fallback={<SkeletonHomepageProducts count={count} />}>
         <FeaturedProducts collections={collections} />
-      </Suspense>    
+      </Suspense>
       <AboutUs />
     </>
   )

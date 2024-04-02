@@ -3,7 +3,7 @@ import { Splide } from '@splidejs/react-splide';
 import SlideBanner from '@modules/common/components/slider/slides/Banner/index';
 
 interface Slider {
-    data?: Array<string>
+    data?: Array<any>
     typeSlider?: string,
     options?: Array<Object>
 }
