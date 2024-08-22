@@ -36,9 +36,9 @@ const Nav = () => {
             ¡Síguenos!
           </span>
         </div>
-        <p className="text-center text-[12px] md:text-[14px]">¡ ENVIO A $1 ! por compras superiores a $49.990</p>
+        <p className="text-center text-[12px] md:text-[14px]">¡ COSTO DE ENVIO POR ZONAS !</p>
         <div className="hidden md:block">
-          <span className="text-[9px] md:text-[14px]">Contáctanos: +569 44218010</span>
+          <span className="text-[9px] md:text-[14px]">Contáctanos: +569 86182719</span>
         </div>
 
       </div>
